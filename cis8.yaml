@@ -5,12 +5,7 @@
    - name: Install NTP
      yum: name=chrony state=installed 
      tags: ntp
-    
-   - name: allow ntp through firewall
-     shell: firewall-cmd --add-service=chronyd --permanent
-
-   - name: firewall reload
-     shell: firewall-cmd --reload
+   
 
    - name: Make sure Chrony is started up
      service: name=chronyd state=started enabled=yes
