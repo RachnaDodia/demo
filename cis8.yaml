@@ -2,7 +2,6 @@
 - name: Password Policy Violation Check
   hosts: all
   tasks:
-   - name:  "2.2.1.1 | L1 | PATCH | Ensure time synchronization is in use - service install"
    - name: Install NTP
      yum: name=ntp state=installed 
      tags: ntp
