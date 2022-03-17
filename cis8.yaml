@@ -34,3 +34,8 @@
        line: "install tipc /bin/true"
        create: yes
        mode: 0600
+       
+   - name: "4.1.1.1 | L2 | PATCH | Ensure auditd is installed | Install auditd packages"
+     package:
+       name: audit
+       state: present
