@@ -61,3 +61,9 @@
        regexp: "^#Compress=|^Compress="
        line: Compress=yes
        state: present
+       
+   - name: "4.2.3 | L1 | PATCH | Ensure permissions on all logfiles are configured"
+     command: find /var/log -type f -exec chmod g-wx,o-rwx "{}" +
+  
+   - name: "6.2.2 | L1 | PATCH | Ensure no legacy '+' entries exist in /etc/passwd"
+     command: sed -i '/^+/ d' /etc/passwd
