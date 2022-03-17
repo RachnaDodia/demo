@@ -54,3 +54,10 @@
         failed_when: false
         check_mode: no
         register: rhel8cis_4_1_1_4_grub_cmdline_linux
+        
+   - name: "4.2.2.2 | L1 | PATCH | Ensure journald is configured to compress large log files"
+    lineinfile:
+      dest: /etc/systemd/journald.conf
+      regexp: "^#Compress=|^Compress="
+      line: Compress=yes
+      state: present
