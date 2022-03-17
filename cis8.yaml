@@ -1,0 +1,26 @@
+---
+- name: Password Policy Violation Check
+  hosts: all
+  tasks:
+   - name:  "2.2.1.1 | L1 | PATCH | Ensure time synchronization is in use - service install"
+   - name: Install NTP
+     yum: name=ntp state=installed 
+     tags: ntp
+    
+   - name: allow ntp through firewall
+     shell: firewall-cmd --add-service=ntp --permanent
+
+   - name: firewall reload
+     shell: firewall-cmd --reload
+
+   - name: Make sure Chrony is started up
+     service: name=chronyd state=started enabled=yes
+     tags: chrony
+   
+   - name: "3.3.2 | L2 | PATCH | Ensure SCTP is disabled"
+     lineinfile:
+       dest: /etc/modprobe.d/CIS.conf
+       regexp: "^(#)?install sctp(\\s|$)"
+       line: "install sctp /bin/true"
+       create: yes
+       mode: 0600
