@@ -13,4 +13,4 @@
      k8s:
        state: present
        src: /root/deploy.yaml
-     delegate_to: localhost
+
