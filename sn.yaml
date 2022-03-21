@@ -1,7 +1,6 @@
 ---
 - name: Register an incident on SN
-  hosts: localhost
-  connection: local
+  hosts: all
   gather_facts: no
   tasks:
   - name: Create a incident
@@ -17,6 +16,6 @@
         description: "Machine set successfully scaled to desired count"
         category: Software
     register: new_incident
-
+    delegate_to: localhost
   - debug: 
       var: new_incident.record
