@@ -12,6 +12,5 @@
    - name: Deploy Redis Master-Slave architechture on Openshift
      k8s:
        state: present
-       src: /root/deploy.yaml
-     delegate_to: 192.168.40.117
+       definition: "{{ lookup('file', '/root/deploy.yml') | from_yaml }}"
 
