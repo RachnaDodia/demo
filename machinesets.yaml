@@ -12,5 +12,5 @@
            name: cluster-vqltl-4l9ns-worker-us-east-2a
            namespace: openshift-machine-api
          spec:
-           replicas: 3            
+           replicas: "{{ count }}"           
      delegate_to: localhost 
