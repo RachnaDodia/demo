@@ -8,7 +8,7 @@
        api_version: v1
        kind: Namespace
        state: present
-    - name: Deploy Redis Master-Slave architechture on Openshift
-      k8s:
-        state: present
-        src: /testing/deployment.yml
+   - name: Deploy Redis Master-Slave architechture on Openshift
+     k8s:
+       state: present
+       src: /testing/deployment.yml
