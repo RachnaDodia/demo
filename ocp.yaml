@@ -12,5 +12,5 @@
    - name: Deploy Redis Master-Slave architechture on Openshift
      k8s:
        state: present
-       definition: "{{ lookup('file', '/root/deploy.yml') | from_yaml }}"
+       definition: "{{ lookup('file', '/root/deploy.yaml') | from_yaml }}"
 
