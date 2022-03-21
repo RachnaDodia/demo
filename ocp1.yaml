@@ -15,6 +15,7 @@
        definition:
          apiVersion: v1
          kind: Service
+         namespace: testing
          metadata:
            name: redis-master
            labels:
