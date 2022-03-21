@@ -9,7 +9,7 @@
        kind: Namespace
        state: present
      delegate_to: localhost
-   - name: Deploy Redis Master-Slave architechture on Openshift
+   - name: Create Service for redis-master
      k8s:
        state: present   
        definition:
@@ -31,3 +31,36 @@
              tier: backend
              role: master
      delegate_to: localhost
+   - name: Create deployment for redis master
+     k8s:
+       state: present   
+       definition:
+         apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+         kind: Deployment
+         metadata:
+           name: redis-master
+           namespace: testing
+         spec:
+           selector:
+             matchLabels:
+               app: redis
+               role: master
+               tier: backend
+           replicas: 1
+           template:
+             metadata:
+               labels:
+                 app: redis
+                 role: master
+                 tier: backend
+             spec:
+               containers:
+               - name: master
+                 image: k8s.gcr.io/redis:e2e  # or just image: redis
+                 resources:
+                   requests:
+                     cpu: 100m
+                     memory: 100Mi
+                 ports:
+                 - containerPort: 6379
+     delegate_to: localhost    
