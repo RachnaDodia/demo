@@ -29,12 +29,4 @@
              app: redis
              tier: backend
              role: master
-    
-    
-    
-   k8s:
-    state: present
-    definition:
-      apiVersion: v1
-      kind: Service
-      metadata:
+
