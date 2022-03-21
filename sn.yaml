@@ -1,0 +1,22 @@
+---
+- name: Register an incident on SN
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Create a incident
+    snow_record:
+      state: present
+      username: admin
+      password: lwj17dwSVWUK
+      instance: dev117483]
+      data:
+        severity: 3
+        priority: 2
+        short_description: "Machine set successfully scaled"
+        description: "Machine set successfully scaled to desired count"
+        category: Software
+    register: new_incident
+
+  - debug: 
+      var: new_incident.record
