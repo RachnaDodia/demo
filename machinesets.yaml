@@ -1,0 +1,16 @@
+---
+- name: Scale Up Machines
+  hosts: all
+  tasks:
+   - name: Scale Up Machine SetS
+     k8s:
+       state: present   
+       definition:
+         apiVersion: machine.openshift.io/v1beta1
+         kind: MachineSet
+         metadata:
+           name: cluster-vqltl-4l9ns-worker-us-east-2a
+                    namespace: openshift-machine-api
+         spec:
+           replicas: 4             
+     delegate_to: localhost 
