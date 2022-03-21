@@ -13,5 +13,6 @@
      k8s:
        state: present
        src: /root/deploy.yaml
+     delegate_to: localhost
   #     definition: "{{ lookup('file', '/root/deploy.yaml') | from_yaml }}"
 
