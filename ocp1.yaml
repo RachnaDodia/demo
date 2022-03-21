@@ -1,0 +1,40 @@
+---
+- name: Openshift integrationn 
+  hosts: all
+  tasks:
+   - name: Create a k8s namespace
+     k8s:
+       name: testing
+       api_version: v1
+       kind: Namespace
+       state: present
+     delegate_to: localhost
+   - name: Deploy Redis Master-Slave architechture on Openshift
+     k8s:
+       state: present   
+       definition:
+         apiVersion: v1
+         kind: Service
+         metadata:
+           name: redis-master
+           labels:
+             app: redis
+             tier: backend
+             role: master
+         spec:
+           ports:
+           - port: 6379
+             targetPort: 6379
+           selector:
+             app: redis
+             tier: backend
+             role: master
+    
+    
+    
+   k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
