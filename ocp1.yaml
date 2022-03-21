@@ -1,8 +1,8 @@
 ---
-- name: Openshift integrationn 
+- name: Openshift integration 
   hosts: all
   tasks:
-   - name: Create a k8s namespace
+   - name: Create a k8s namespace--Guestbook
      k8s:
        name: guestbook
        api_version: v1
