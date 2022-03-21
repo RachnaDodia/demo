@@ -11,5 +11,5 @@
    - name: Deploy Redis Master-Slave architechture on Openshift
      k8s:
        state: present
-       src: deploy.yml
+       src: /root/deploy.yaml
      delegate_to: localhost
