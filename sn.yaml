@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
   - name: Create a incident
-    snow_record:
+    servicenow.servicenow.snow_record:
       state: present
       username: admin
       password: lwj17dwSVWUK
