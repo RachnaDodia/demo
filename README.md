@@ -1,8 +1,7 @@
 # demo
 https://api.cluster-vqltl.vqltl.sandbox1210.opentlc.com:6443
 
-
-oc login --token=sha256~3VEInMrEmx-KXBTXUU_K5HSE53MKajs20br08FU9D6k --server=https://api.cluster-vqltl.vqltl.sandbox1210.opentlc.com:6443
+oc login --token=sha256~DfOsj8cDbpptHcLzOu5jKHAV9Td275yhbXny1x87NhM --server=https://api.cluster-vqltl.vqltl.sandbox1210.opentlc.com:6443
 
 User `opentlc-mgr` with password `r3dh4t1!` is cluster admin.
 
